@@ -1,7 +1,7 @@
 # SetStravaCommute
 Fairly basic Google Script that can be easily reworked for different GPS coordinates.
 
-This will return the default number of Strava activities (30 at the time of writing 10/02/2018) as JSON, convert to an object and then run run a series of tests to identify if the bike ride is likely to be a "commute".
+This will return the default number of Strava activities (30 at the time of writing 10/02/2018) as JSON and then run a series of tests to identify if the bike ride is likely to be a "commute".
 
 ## Commute tests
 The following tests are used to confirm if this is likely to be a commute
