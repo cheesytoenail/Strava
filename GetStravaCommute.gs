@@ -93,13 +93,16 @@ function GetStravaCommute() {
                 var emptyFSum = sheetSum.getRange(sheetSum.getLastRow()+1,6,1)
                 var emptyGSum = sheetSum.getRange(sheetSum.getLastRow()+1,7,1)
 
+                var totalDistFormSum = "SUM('" + startYear + "'!I:I)"
+                var totalCostFormSum = "SUM('" + startYear + "'!J:J)"
+
                 emptyASum.setValue([startYear]).setFontWeight("bold").setHorizontalAlignment("right")
-                emptyBSum.setValue([startYear]).setFontWeight("bold").setHorizontalAlignment("right")
-                emptyCSum.setValue([startYear]).setFontWeight("bold").setHorizontalAlignment("right")
-                emptyDSum.setValue([startYear]).setFontWeight("bold").setHorizontalAlignment("right")
-                emptyESum.setValue([startYear]).setFontWeight("bold").setHorizontalAlignment("right")
-                emptyFSum.setValue([startYear]).setFontWeight("bold").setHorizontalAlignment("right")
-                emptyGSum.setValue([startYear]).setFontWeight("bold").setHorizontalAlignment("right")
+                emptyBSum.setValue("Single Fare").setFontWeight("bold").setHorizontalAlignment("right")
+                emptyCSum.setHorizontalAlignment("right")
+                emptyDSum.setValue("Total").setFontWeight("bold").setHorizontalAlignment("right")
+                emptyESum.setFormula([totalDistFormSum]).setHorizontalAlignment("right")
+                emptyFSum.setValue("Distance").setFontWeight("bold").setHorizontalAlignment("right")
+                emptyGSum.setFormula([totalCostFormSum]).setHorizontalAlignment("right")
             }
 
             // Set column headers
@@ -114,7 +117,8 @@ function GetStravaCommute() {
                 sheet.getRange('F1').setValue('Distance').setFontWeight("bold").setHorizontalAlignment("right")
                 sheet.getRange('G1').setValue('Speed').setFontWeight("bold").setHorizontalAlignment("right")
                 sheet.getRange('H1').setValue('NP').setFontWeight("bold").setHorizontalAlignment("right")
-                sheet.getRange('G1').setValue('Savings').setFontWeight("bold").setHorizontalAlignment("right")
+                sheet.getRange('I1').setValue('Total Distance').setFontWeight("bold").setHorizontalAlignment("right")
+                sheet.getRange('J1').setValue('Total Savings').setFontWeight("bold").setHorizontalAlignment("right")
             } else {
                 var sheet = ss.getSheetByName(startYear)
             }
