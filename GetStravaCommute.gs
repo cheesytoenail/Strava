@@ -27,7 +27,7 @@ function GetStravaCommute() {
     ss.moveActiveSheet(0)
     
     // Check for default sheet and remove if present
-    var sheetDef = ss.getSheetByName("Sheet1")
+    var sheetDef = ss.getSheetByName("Sheet*") // this needs testing properly
     if (sheetDef) {
         ss.setActiveSheet(sheetDef)
         ss.deleteActiveSheet()
@@ -139,8 +139,9 @@ function GetStravaCommute() {
             var emptyF = sheet.getRange(sheet.getLastRow()+1,6,1)
             var emptyG = sheet.getRange(sheet.getLastRow()+1,7,1)
             var emptyH = sheet.getRange(sheet.getLastRow()+1,8,1)
-            var emptyH = sheet.getRange(sheet.getLastRow()+1,9,1)
-            
+            var emptyI = sheet.getRange(sheet.getLastRow()+1,9,1)
+            var emptyJ = sheet.getRange(sheet.getLastRow()+1,10,1)
+
             // Check for duplicates
             var column = 1
             var columnValues = sheet.getRange(2, column, sheet.getLastRow()).getValues()
@@ -158,6 +159,7 @@ function GetStravaCommute() {
                 emptyF.setValue([actDist]).setNumberFormat("0.0").setHorizontalAlignment("right")
                 emptyG.setValue([speedAverage]).setNumberFormat("0.0").setHorizontalAlignment("right")
                 emptyH.setValue([powerNP]).setHorizontalAlignment("right")
+
             }
 
             // Column resizing  
@@ -169,6 +171,8 @@ function GetStravaCommute() {
             sheet.autoResizeColumn(6)
             sheet.autoResizeColumn(7)
             sheet.autoResizeColumn(8)
+            sheet.autoResizeColumn(9)
+            sheet.autoResizeColumn(10)
         }
     }
 
